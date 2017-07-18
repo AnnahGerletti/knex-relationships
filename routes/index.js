@@ -13,4 +13,6 @@ router.get('/', function (req, res) {
     })
 })
 
+router.get('/details')
+
 module.exports = router

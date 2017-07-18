@@ -6,7 +6,8 @@
   <body>
     <ul>
     {{#each users}}
-      <li>{{name}} ({{email}})</li>
+      <li>
+        <a href='/details'> {{name}} ({{email}}) </a></li>
     {{/each}}
     </ul>
   </body>
