@@ -24,4 +24,24 @@ router.get('/profiles/:id', function (req, res) {
     })
 })
 
+
+router.get('/addNew', function (req, res) {
+  res.render('newAnimal')
+})
+
+router.post("/addNew", function (req, res) {
+    db.newUser(req.body, req.app.get('connection'))
+      .then(function() {
+        res.redirect('/')
+    })
+    .catch(function (err) {
+      res.status(500).send('DATABASE ERROR: ' + err.message)
+    })
+})
+
+
+
+
+
+
 module.exports = router
