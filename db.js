@@ -21,12 +21,11 @@ function newUser(data, connection){
   return connection('users')
     .insert(newUserObject)//pass a new id to be used later
     .then(function(newUserId) {//outputs the newuser [id]
-console.log(newUserId);
       var newProfileObject = {// pass in the data == id (user_id) adding the deepest-fears column
         deepest_fears: data.deepest_fears,
-        user_id: newUserId[0]//the user id position zero
+        user_id: newUserId[0]//the user id position zero is assigned to user_id from other user table
       }
       return connection('profiles')
-      .insert(newProfileObject)
+      .insert(newProfileObject)//finally update and add the new fear to the table from the newProfileObject
     })
 }
